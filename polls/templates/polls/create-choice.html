@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    {% include "polls/head.html" %}
+    <title>Crear Respuesta</title>
+<body>
+    {% include "polls/top.html" %}
+    <div class="container" style="width: 40rem;">
+        {% if message %}
+        <div class="alert {{message_class}}" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <div class="card bg-dark text-white">
+            <div class="card-header">
+                <div class="text-center">
+                    <h1>Crear Respuesta</h1>
+                </div>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'polls:saveChoice' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="questionid">Seleccionar Pregunta</label>
+                        <select class="custom-select" name="question" id="questionid" required>
+                            <option disabled selected>Selecciona una pregunta</option>
+                            {% for pregunta in preguntas %}
+                            <option value="{{pregunta.id}}">{{pregunta.question_text}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="texto-respuesta">Ingresar respuesta:</label>
+                        <input class="form-control" type="text" name="respuesta" id="texto-respuesta" placeholder="ejemplo: si, no, talvez">
+                    </div>
+                    <input type="submit" value="Guardar respuesta" class="btn btn-success float-right">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

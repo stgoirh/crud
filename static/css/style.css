@@ -1,0 +1,48 @@
+html, body{
+    background: white url("../img/background.gif") no-repeat;
+    background-size: cover;
+    height: 80%;
+}
+.tarjeta{
+    width: 30rem;
+}
+
+.tarjeta-40{
+    width: 40rem;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.tarjeta-imagen-texto{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login{
+    text-decoration: none;
+}
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .fas {
+  position: absolute;
+  padding: 10px;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .fas  { left:  0px;}
+.right-addon .fas { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  2.5rem; }
+.right-addon input { padding-right: 2.5rem; }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% include "polls/head.html"%}
+<link rel="stylesheet" href="{% static '/css/estilo-validar.css' %}">
+<title>Home</title>
+
+<body>
+    {% include "polls/top.html" %}
+    
+    <div class="container">
+        <div class="card bg-dark text-white mx-auto" style="width: 40rem;">
+            <div class="card-header">
+                Registro
+            </div>
+            <div class="card-body">
+                <form action="{% url 'registrar' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="nombre-usuario">Nombre de usuario:</label>
+                        <div class="inner-addon left-addon">
+                            <i class="fas fa-user" style="color: dimgray;"></i>
+                            <input type="text" class="form-control" placeholder="ingresar nombre de usuario" name="usuario" id="nombre-usuario"> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-usuario">E-mail de usuario</label>
+                        <div class="inner-addon left-addon">
+                            <i class="fas fa-envelope" style="color: dimgray;"></i>
+                            <input type="email" class="form-control" placeholder="e.g. ejemplo@dominio.com" name="email" id="email-usuario">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password-usuario">Contraseña</label>
+                        <div class="inner-addon left-addon">
+                            <i class="fas fa-key" style="color: dimgray;"></i>
+                            <input type="password" class="form-control" placeholder="e.g. contraseñaMuySegura321" name="password" id="password-usuario">
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-lg btn-success float-right" value="Registrarse">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

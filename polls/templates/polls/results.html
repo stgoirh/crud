@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    {% include "polls/head.html" %}
+    <title>Resultados</title>
+<body>
+    {% include "polls/top.html" %}
+    <div class="container">
+        <h1>{{ question.question_text }}</h1>
+        <table class="table table-dark table-striped">
+        <thead>
+            <th scope="col">respuesta</th>
+            <th scope="col">votos</th>
+        </thead>
+        <tbody>
+            {% for choice in question.choice_set.all %}
+            <!-- <li>{{ choice.choice_text }} -- {{choice.votes }} vote {{choice.votes|pluralize}}</li> -->
+            <tr>
+                <th scope="row"> {{choice.choice_text}}</th>
+                <td>{{ choice.votes}} voto{{choice.votes|pluralize}}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        <a class="btn btn-outline-warning" href="{% url 'polls:detail' question.id %}">Votar otra vez?</a>
+    </div>
+    
+</body>
+
+</html>

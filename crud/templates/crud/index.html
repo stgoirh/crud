@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "polls/head.html"%}
+<title>Home</title>
+<body>
+    {% include "polls/top.html" %}
+    {% load static %}
+    <div class="container ">
+        <div class="d-flex justify-content-between">
+            <div class="card bg-dark text-white tarjeta">
+                <div class="card-header">
+                    Parrafo texto
+                </div>
+                <div class="card-body">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, unde quo eos velit optio
+                        commodi, adipisci quibusdam ratione harum odio nemo quasi quae odit iusto vel atque similique
+                        sunt maxime!
+                    </p>
+                </div>
+            </div>
+            <div class="card bg-dark text-white tarjeta">
+                <div class="card-header">
+                    Parrafo texto
+                </div>
+                <div class="card-body">
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aliquid numquam, pariatur
+                        necessitatibus iste sit placeat provident fugit debitis aut laboriosam, nihil hic iure est.
+                        Molestiae sunt aperiam dolores explicabo.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <br>
+            <div class="card bg-dark text-white">
+                <div class="card-header">
+                    Parrafo texto
+                </div>
+                <div class="card-body">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ab at magni est nulla
+                        laborum velit nesciunt molestiae delectus labore? Id, dolor porro. Fugit error quasi optio
+                        aspernatur molestiae accusantium.
+                    </p>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio aliquid aut quibusdam
+                        aliquam, doloribus aperiam corporis unde molestias adipisci, quidem consectetur nulla dolorum
+                        quis asperiores consequuntur commodi corrupti deleniti nemo!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id cupiditate iure atque inventore
+                        eveniet, accusamus esse suscipit velit, ullam dolore debitis quibusdam provident fugit deserunt
+                        hic reiciendis ut vero impedit.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="d-flex tarjeta-imagen-texto">
+            <div class="card bg-dark text-white tarjeta">
+                <div class="card-header">
+                    Parrafo texto
+                </div>
+                <div class="card-body">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus quaerat repellat dolor
+                    perferendis dignissimos sunt, necessitatibus quasi cupiditate aperiam odit libero. Praesentium nihil
+                    pariatur ipsam blanditiis, modi aperiam cumque rem.
+                </div>
+            </div>
+            
+            <div class="card bg-dark text-white tarjeta">
+                <div class="card-header">
+                    <img src="{% static '/img/imagen.webp' %}" alt="asd">
+                </div>
+                <div class="card-body text-center">
+                    imagen
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

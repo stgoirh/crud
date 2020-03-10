@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+{% include "polls/head.html"%}
+<title>Detalle</title>
+<body>
+    {% include "polls/top.html" %}
+    <div class="container" style="max-width: 45rem;">
+        
+        <div>
+            <a class="btn btn-outline-danger" href="{% url 'polls:index' %}">volver</a>
+            <div>
+                <h1 class="d-inline text-white">{{question.question_text}}</h1>
+            </div>
+        </div>
+
+        {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        {% if mensaje %}
+        <div class="alert alert-success" role="alert">
+            {{ mensaje }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <div class="card bg-dark text-white mx-auto">
+            <div class="card-header">
+                Respuestas
+                <div>
+                    {{question.pub_date}}
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <form action="{% url 'polls:vote' question.id %}" method="POST">
+                    {% csrf_token %}
+                    {% for choice in question.choice_set.all %}
+                    <div class="input-group mb-3 mx-auto text-center" style="max-width: 35rem;">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-dark border-primary">
+                                <input class="list-group-item-dark" type="radio" name="choice" id="choice{{forloop.counter}}"
+                                    value="{{choice.id}}">
+                            </div>
+                        </div>
+                        <label class="form-control list-group-item-dark "
+                            for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                    </div>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-primary btn-lg float-right" value="Votar">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
